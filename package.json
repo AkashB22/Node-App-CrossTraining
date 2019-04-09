@@ -1,0 +1,41 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "testproject",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "cookie-session": "^1.3.3",
+    "cor": "0.0.0",
+    "cors": "^2.8.5",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-sass": "^2.0.0",
+    "handlebars-helpers": "^0.10.0",
+    "https": "^1.0.0",
+    "mongodb": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-http": "*",
+    "passport-local": "*",
+    "stripe": "^6.28.0",
+    "yarn": "^1.9.4"
+  },
+  "devDependencies": {
+    "gulp-uglify": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "akash",
+  "license": "ISC"
+}
