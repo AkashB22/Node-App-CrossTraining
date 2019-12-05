@@ -30,7 +30,7 @@ var answers = require('./routes/answers');
 var testing = require('./routes/testing');
 var auth = require('./routes/auth');
 var stripe = require('./routes/stripe');
-var email = require('./routes/email');
+//var email = require('./routes/email');
 
 var passportSetup = require('./passportService/passport-setup');
 var cookieSession = require('cookie-session');
@@ -135,7 +135,7 @@ app.use('/admin',admin);
 app.use('/testing', testing);
 app.use('/auth', auth);
 app.use('/stripe', stripe);
-app.use('/email', email);
+//app.use('/email', email);
 
 var server = http.createServer(app)
 
