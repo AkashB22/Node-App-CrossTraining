@@ -34,7 +34,7 @@
     "gulp-uglify": "^3.0.1"
   },
   "scripts": {
-    "preinstall": "npm install"
+    
   },
   "author": "akash",
   "license": "ISC",
