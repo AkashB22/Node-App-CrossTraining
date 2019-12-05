@@ -1,23 +1,23 @@
-var express = require('express');
-var router = express.Router();
-var session = require('express-session');
-var Event = require('../models/event');
-var acc_Dec = require('../models/acc_dec'); 
+let  express = require('express');
+let  router = express.Router();
+let  session = require('express-session');
+let  Event = require('../models/event');
+let  acc_Dec = require('../models/acc_dec'); 
 
 router.get('/createEvent', ensureAuthenticated, function(req, res){
 	res.render('createevent');
 });
 
 router.post('/addEvent', function(req, res){
-	var employeename = req.session.username;
+	let  employeename = req.session.username;
 	console.log(employeename +"employeename");
-	var topic = req.body.event_topic;
-	var timings = req.body.event_timings;
-	var location = req.body.event_location;
-	var meetingRoom = req.body.event_room_number;
-	var date = req.body.event_date;
-	var test = req.body.event_test;
-	var newEvent = new Event({
+	let  topic = req.body.event_topic;
+	let  timings = req.body.event_timings;
+	let  location = req.body.event_location;
+	let  meetingRoom = req.body.event_room_number;
+	let  date = req.body.event_date;
+	let  test = req.body.event_test;
+	let  newEvent = new Event({
 		createrName : employeename,
         topic : topic,
 		timings : timings,
@@ -58,13 +58,13 @@ router.get('/allEvent', ensureAuthenticated, function(req,res){
 });
 
 router.post('/getEvent', function(req,res,next){
-	var full = req.body;
-	var status=[];
-	var Prev_accept=[];
-	var Prev_decline=[];
+	let  full = req.body;
+	let  status=[];
+	let  Prev_accept=[];
+	let  Prev_decline=[];
 	console.log(full);
 	status.push(req.session.username);
-	for(var k in full){
+	for(let  k in full){
 		status.push(full[k]);
 		console.log("full"+ full[k]);
 	}
@@ -74,9 +74,9 @@ router.post('/getEvent', function(req,res,next){
 		console.log('allEvents' + allEvent);
 		allEvent = JSON.stringify(allEvent);
 		allEvent = JSON.parse(allEvent);
-		for(var i in allEvent){
+		for(let  i in allEvent){
 			
-			for(var j in allEvent[i].AcceptedMembers){
+			for(let  j in allEvent[i].AcceptedMembers){
 				if(allEvent[i].topic == status[1]){
 				Prev_accept.push(allEvent[i].AcceptedMembers[j]);
 				
@@ -88,7 +88,7 @@ router.post('/getEvent', function(req,res,next){
 	console.log("Prev_accept======="+Prev_accept);
 	Prev_accept.push(status[0]);
 	if(status[2] == "accept"){
-	var Status = new Event({
+	let  Status = new Event({
 		AcceptedMembers : Prev_accept,
 		topic : status[1],
     });
@@ -99,9 +99,9 @@ router.post('/getEvent', function(req,res,next){
 	});
 	}
 	else if(status[2] == "decline"){
-		for(var l in allEvent){
+		for(let  l in allEvent){
 			
-			for(var m in allEvent[l].DeclinedMebers){
+			for(let  m in allEvent[l].DeclinedMebers){
 				if(allEvent[l].topic == status[1]){
 				Prev_decline.push(allEvent[l].DeclinedMebers[m]);
 				
@@ -109,7 +109,7 @@ router.post('/getEvent', function(req,res,next){
 		}
 		}
 		Prev_decline.push(status[0]);
-		var Status_dec = new Event({
+		let  Status_dec = new Event({
 			DeclinedMebers :Prev_decline ,
 			topic : status[1],
 			});	

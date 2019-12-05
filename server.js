@@ -2,7 +2,7 @@ var express = require('express');
 var cors = require('cors');
 var path = require('path');
 var fs = require('fs');
-var https = require('https');
+var http = require('http');
 //var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -30,6 +30,7 @@ var answers = require('./routes/answers');
 var testing = require('./routes/testing');
 var auth = require('./routes/auth');
 var stripe = require('./routes/stripe');
+var email = require('./routes/email');
 
 var passportSetup = require('./passportService/passport-setup');
 var cookieSession = require('cookie-session');
@@ -108,7 +109,7 @@ app.use(function(req, res, next){
 });
 
 //Enabling cors
-var allowedOrigins= ['http://localhost:4200', 'http://localhost:2019', 'https://localhost:3001'];
+var allowedOrigins= ['http://localhost:4200', 'http://localhost:2019', 'http://localhost:3001'];
 
 app.use(cors({
 	origin: function(origin, callback){
@@ -134,8 +135,9 @@ app.use('/admin',admin);
 app.use('/testing', testing);
 app.use('/auth', auth);
 app.use('/stripe', stripe);
+app.use('/email', email);
 
-var server = https.createServer(credentials, app)
+var server = http.createServer(app)
 
 app.set('port', (process.env.PORT || 3001));
 

@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var session = require('express-session');
-var User = require('../models/user');
+let  express = require('express');
+let  router = express.Router();
+let  session = require('express-session');
+let  User = require('../models/user');
 
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+let  passport = require('passport');
+let  LocalStrategy = require('passport-local').Strategy;
 
 router.get('/register', function(req,res){
 	res.render('register');
@@ -15,13 +15,13 @@ router.get('/login', function(req,res){
 });
 
 router.post('/register', function(req,res){
-	var employeeid = req.body.employeeid;
-	var password = req.body.password;
-	var password2 = req.body.password2;
-	var username = req.body.username;
-	var email = req.body.email;
-	var phonenumber = req.body.phonenumber;
-	var domain = req.body.domain;
+	let  employeeid = req.body.employeeid;
+	let  password = req.body.password;
+	let  password2 = req.body.password2;
+	let  username = req.body.username;
+	let  email = req.body.email;
+	let  phonenumber = req.body.phonenumber;
+	let  domain = req.body.domain;
 
 	req.checkBody('employeeid','employeeid is required!').notEmpty();
 	req.checkBody('password','password is required!').notEmpty();
@@ -33,14 +33,14 @@ router.post('/register', function(req,res){
 	req.checkBody('phonenumber','phone number is required').notEmpty();
 	req.checkBody('domain', 'domain is required').notEmpty();
 
-	var errors = req.validationErrors();
+	let  errors = req.validationErrors();
 	if(errors){
 		res.render('register',{
 			errors:errors
 		});
 	}
 	else{
-		var newUser = new User({
+		let  newUser = new User({
 			employeeid : employeeid,
 			password : password,
 			password2 : password2,
@@ -98,10 +98,10 @@ router.post('/register', function(req,res){
 // });
 
 router.post('/login', function(req, res){
-	var employeeid = req.body.username;
-	var password = req.body.password;
+	let  employeeid = req.body.username;
+	let  password = req.body.password;
 
-	var newUser = new User({
+	let  newUser = new User({
 		employeeid : employeeid,
 		password : password
 	});

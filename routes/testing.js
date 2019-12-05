@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var tourOfSeries = require('./../models/tourOfSeries');
+let  express = require('express');
+let  router = express.Router();
+let  tourOfSeries = require('./../models/tourOfSeries');
 
 router.get('/',function(req,res){
-    var givenData = typeof(req.query.name) == 'string' && req.query.name.length > 0 ? req.query.name : '';
+    let  givenData = typeof(req.query.name) == 'string' && req.query.name.length > 0 ? req.query.name : '';
     if(givenData){
         tourOfSeries.getForSearch(givenData, function(err, data){
             if(err) throw err;
@@ -18,8 +18,8 @@ router.get('/',function(req,res){
 });
 
 router.post('/',function(req,res){
-    var data = req.body;
-    var modelData = new tourOfSeries({
+    let  data = req.body;
+    let  modelData = new tourOfSeries({
         id : data.id,
         name : data.name
     })
@@ -30,9 +30,9 @@ router.post('/',function(req,res){
 });
 
 router.delete('/:id', function(req,res){
-    var seriesId = req.params.id;
+    let  seriesId = req.params.id;
     console.log(seriesId);
-    var modelData = new tourOfSeries({
+    let  modelData = new tourOfSeries({
         id : seriesId
     });
     tourOfSeries.deleteSerie(modelData, function(err, data){
@@ -42,8 +42,8 @@ router.delete('/:id', function(req,res){
 });
 
 router.get('/:id', function(req,res){
-    var seriesId = req.params.id;
-    var modelData = new tourOfSeries({
+    let  seriesId = req.params.id;
+    let  modelData = new tourOfSeries({
         id : seriesId
     });
     tourOfSeries.getASerie(modelData, function(err, data){
@@ -53,7 +53,7 @@ router.get('/:id', function(req,res){
 });
 
 router.put('/', function(req,res){
-    var series = req.body;
+    let  series = req.body;
     series.date = new Date;
     tourOfSeries.updateASerie(series, function(err,data){
         if(err) throw err;

@@ -1,25 +1,25 @@
-var express = require('express');
-var router = express.Router();
-var session = require('express-session');
-var tests = require('../models/test');
-var Event = require('../models/event');
+let  express = require('express');
+let  router = express.Router();
+let  session = require('express-session');
+let  tests = require('../models/test');
+let  Event = require('../models/event');
 router.get('/createTest', ensureAuthenticated, function(req, res){
 	res.render('createtest');
 });
 
 router.post('/testQuestions',function(req,res)
 {   
-    var full = req.body;
-    var next = '';
-    var submit = '';
-    var questions=req.body.question;
-    var options=[];
-    var optiona=req.body.optiona;
-    var optionb=req.body.optionb;
-    var optionc=req.body.optionc;
-    var optiond=req.body.optiond;
+    let  full = req.body;
+    let  next = '';
+    let  submit = '';
+    let  questions=req.body.question;
+    let  options=[];
+    let  optiona=req.body.optiona;
+    let  optionb=req.body.optionb;
+    let  optionc=req.body.optionc;
+    let  optiond=req.body.optiond;
     options.push(optiona,optionb,optionc,optiond);
-    var answer=req.body.correctanswer;
+    let  answer=req.body.correctanswer;
     next = req.body.next;
     submit = req.body.submit;
     
@@ -27,7 +27,7 @@ router.post('/testQuestions',function(req,res)
 
 
 
-var newtest=new tests({
+let  newtest=new tests({
     questions:questions,
     options:options,
     answer:answer

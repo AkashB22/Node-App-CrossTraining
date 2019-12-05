@@ -1,22 +1,22 @@
-var express=require('express');
-var router=express.Router();
+let  express=require('express');
+let  router=express.Router();
 
-var event=require('../models/event');
-var count1=require('../models/answer');
+let  event=require('../models/event');
+let  count1=require('../models/answer');
 router.get('/logouts', function(req,res){  
     res.render('adminlogin');
 });  
 router.get('/admindisplay', function(req,res){    
-     var ad={};
-     var employeeid=[];
-     var count=[];
+     let  ad={};
+     let  employeeid=[];
+     let  count=[];
     event.getAllEvents(function(err,ret)
     {
         if(err) throw err;
         ad=ret;
         count1.getanswer(function(req9,counts)
         {
-            for(var i in counts){
+            for(let  i in counts){
           employeeid.push(counts[i].employeeid);
           count.push(counts[i].count);
             }
@@ -30,9 +30,9 @@ router.get('/adminse', function(req,res){
 });
 router.post('/adminse',function(req,res)
 {
-var username=req.body.username;
-var password=req.body.password;
-if(req.body.username=="vishnukumarkapilavaradhan" && req.body.password=="Qwerty.1")
+let  username=req.body.username;
+let  password=req.body.password;
+if(req.body.username=="vishnukumarkapilalet adhan" && req.body.password=="Qwerty.1")
 {    req.session.adminname=req.body.username;
     res.redirect('/admin/admindisplay');
     req.flash('success_msg', 'Welcome to admin portal');
