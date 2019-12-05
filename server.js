@@ -16,7 +16,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 //mongoose.connect('mongodb://127.0.0.1/loginapp', () => {console.log('Connected to mongoDB local')});
 
-mongoose.connect('mongodb+srv://akashbalu22:KMOLAJUpkgWWZHtx@cluster0-6l2ig.mongodb.net/crossTrainingPlatform?retryWrites=true&w=majority',() => {console.log('Connected to mongoDB online')});
+mongoose.connect('mongodb+srv://akashbalu22:*********@cluster0-6l2ig.mongodb.net/crossTrainingPlatform?retryWrites=true&w=majority',() => {console.log('Connected to mongoDB online')});
 
 var db = mongoose.connection;
 
