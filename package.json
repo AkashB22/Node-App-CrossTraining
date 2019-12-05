@@ -2,7 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "description": "testproject",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
@@ -34,8 +34,12 @@
     "gulp-uglify": "^3.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "npm install"
   },
   "author": "akash",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "10.16.x",
+    "npm": "6.9.x"
+  }
 }
